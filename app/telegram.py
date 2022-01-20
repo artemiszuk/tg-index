@@ -42,7 +42,7 @@ class Client(TelegramClient):
 
                 part += 1
 
-            self.log.debug(f"serving finished")
+            self.log.debug('serving finished')
         except (GeneratorExit, StopAsyncIteration, asyncio.CancelledError):
             self.log.debug("file serve interrupted")
             raise
