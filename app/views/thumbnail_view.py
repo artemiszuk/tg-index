@@ -39,13 +39,13 @@ class ThumbnailView:
             location = types.InputPhotoFileLocation
 
         if not thumbnails:
-            color = tuple([random.randint(0, 255) for i in range(3)])
+            color = tuple(random.randint(0, 255) for _ in range(3))
             im = Image.new("RGB", (100, 100), color)
             temp = io.BytesIO()
             im.save(temp, "PNG")
             body = temp.getvalue()
         else:
-            thumb_pos = int(len(thumbnails) / 2)
+            thumb_pos = len(thumbnails) // 2
             try:
                 thumbnail = self.client._get_thumb(thumbnails, thumb_pos)
             except Exception as e:
